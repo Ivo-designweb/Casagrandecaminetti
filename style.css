@@ -1,0 +1,536 @@
+/* ==========================================================================
+   SITO SEGNAPOSTO — STUFE & CAMINETTI TIROLESI
+   Sistema di token estetico centralizzato.
+   Per cambiare i colori o i font di TUTTO il sito, modifica solo qui sotto.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;600;700&family=Work+Sans:wght@400;500;600&display=swap');
+
+:root{
+  /* --- Palette: calda, artigianale, ispirata a legno / brace / ottone --- */
+  --colore-intonaco:   #EDE3D3; /* fondo chiaro caldo */
+  --colore-intonaco-2: #E4D6C0; /* fondo chiaro, variante leggermente più scura */
+  --colore-ferro:      #2A211B; /* quasi nero caldo, testo principale e sezioni scure */
+  --colore-ferro-2:    #382C24; /* variante leggermente più chiara del quasi nero */
+  --colore-brace:      #C1440E; /* accento primario: arancio-rosso brace */
+  --colore-brace-scura:#9C3609; /* hover / stati attivi */
+  --colore-ottone:     #A67C3C; /* accento secondario: ottone / dettagli */
+  --colore-noce:       #6B4226; /* bordi, divisori, texture legno */
+  --colore-pietra:     #8C8175; /* testo secondario, bordi tenui */
+  --colore-bianco-caldo:#FBF7EF;
+
+  /* --- Tipografia --- */
+  --font-display: 'Zilla Slab', 'Georgia', serif;
+  --font-corpo:   'Work Sans', -apple-system, sans-serif;
+
+  /* --- Spaziatura / raggio --- */
+  --raggio: 2px;
+  --max-larghezza: 1180px;
+}
+
+/* ============ RESET essenziale ============ */
+*, *::before, *::after{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin: 0;
+  background: var(--colore-intonaco);
+  color: var(--colore-ferro);
+  font-family: var(--font-corpo);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img{ max-width: 100%; display: block; }
+a{ color: inherit; text-decoration: none; }
+ul{ margin: 0; padding: 0; list-style: none; }
+h1,h2,h3,h4,p{ margin: 0; }
+button{ font-family: inherit; cursor: pointer; }
+
+:focus-visible{
+  outline: 3px solid var(--colore-ottone);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+}
+
+.contenitore{
+  max-width: var(--max-larghezza);
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* ============ ELEMENTO FIRMA: motivo intaglio tirolese ============
+   Striscia decorativa a zig-zag ispirata agli intagli in legno alpini,
+   usata come divisore tra le sezioni e come cornice del logo. */
+.intaglio{
+  height: 14px;
+  width: 100%;
+  background-image:
+    linear-gradient(135deg, var(--colore-ottone) 25%, transparent 25%),
+    linear-gradient(225deg, var(--colore-ottone) 25%, transparent 25%);
+  background-position: 0 0;
+  background-size: 20px 14px;
+  background-repeat: repeat-x;
+  opacity: 0.85;
+}
+.intaglio--scuro{
+  background-image:
+    linear-gradient(135deg, var(--colore-brace) 25%, transparent 25%),
+    linear-gradient(225deg, var(--colore-brace) 25%, transparent 25%);
+}
+
+/* ============ HEADER / NAV ============ */
+.intestazione{
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--colore-intonaco);
+  border-bottom: 1px solid rgba(107,66,38,0.25);
+}
+.nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+.logo{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: 0.02em;
+  color: var(--colore-ferro);
+}
+.logo-segno{
+  width: 34px; height: 34px;
+  border: 2px solid var(--colore-brace);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  color: var(--colore-brace);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.nav-link{
+  display: flex;
+  gap: 28px;
+}
+.nav-link a{
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--colore-ferro-2);
+  padding: 6px 2px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.nav-link a:hover, .nav-link a[aria-current="page"]{
+  color: var(--colore-brace);
+  border-bottom-color: var(--colore-brace);
+}
+.nav-cta{
+  background: var(--colore-brace);
+  color: var(--colore-bianco-caldo) !important;
+  padding: 10px 20px;
+  border-radius: var(--raggio);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-bottom: none !important;
+  transition: background 0.2s ease;
+}
+.nav-cta:hover{ background: var(--colore-brace-scura); }
+
+.nav-burger{
+  display: none;
+  background: none;
+  border: none;
+  padding: 8px;
+}
+.nav-burger span{
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--colore-ferro);
+  margin: 5px 0;
+}
+
+@media (max-width: 860px){
+  .nav-link{
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: var(--colore-intonaco);
+    flex-direction: column;
+    gap: 0;
+    border-bottom: 1px solid rgba(107,66,38,0.25);
+    display: none;
+  }
+  .nav-link.aperto{ display: flex; }
+  .nav-link a{ padding: 16px 28px; border-bottom: 1px solid rgba(107,66,38,0.12); width: 100%; }
+  .nav-burger{ display: block; }
+  .nav-cta{ display: none; }
+}
+
+/* ============ HERO (pagina Home) ============ */
+.hero{
+  position: relative;
+  background: radial-gradient(ellipse 700px 500px at 78% 30%, rgba(193,68,14,0.35), transparent 60%), var(--colore-ferro);
+  color: var(--colore-bianco-caldo);
+  overflow: hidden;
+  padding: 110px 0 90px;
+}
+.hero::before{
+  /* bagliore pulsante, evoca la brace di una stufa */
+  content: "";
+  position: absolute;
+  top: 20%;
+  right: 8%;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(193,68,14,0.55) 0%, rgba(193,68,14,0) 70%);
+  filter: blur(10px);
+  animation: bagliore 5s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes bagliore{
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.08); }
+}
+.hero-contenuto{
+  position: relative;
+  max-width: 640px;
+}
+.hero-eyebrow{
+  font-family: var(--font-corpo);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--colore-ottone);
+  margin-bottom: 18px;
+  display: block;
+}
+.hero h1{
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  line-height: 1.08;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 22px;
+}
+.hero h1 em{
+  font-style: normal;
+  color: var(--colore-brace);
+}
+.hero p{
+  font-size: 1.15rem;
+  color: rgba(251,247,239,0.82);
+  max-width: 520px;
+  margin-bottom: 34px;
+}
+.hero-azioni{
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ============ BOTTONI ============ */
+.bottone{
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: var(--raggio);
+  font-weight: 600;
+  font-size: 0.98rem;
+  transition: transform 0.15s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+.bottone--pieno{
+  background: var(--colore-brace);
+  color: var(--colore-bianco-caldo);
+}
+.bottone--pieno:hover{ background: var(--colore-brace-scura); transform: translateY(-1px); }
+.bottone--contorno{
+  border: 1.5px solid rgba(251,247,239,0.4);
+  color: var(--colore-bianco-caldo);
+}
+.bottone--contorno:hover{ border-color: var(--colore-ottone); color: var(--colore-ottone); }
+.bottone--scuro-contorno{
+  border: 1.5px solid var(--colore-noce);
+  color: var(--colore-ferro);
+}
+.bottone--scuro-contorno:hover{ border-color: var(--colore-brace); color: var(--colore-brace); }
+
+/* ============ SEZIONI GENERICHE ============ */
+.sezione{ padding: 84px 0; }
+.sezione--stretta{ max-width: 760px; margin: 0 auto; padding-left: 28px; padding-right: 28px; }
+.eyebrow{
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--colore-brace);
+  margin-bottom: 14px;
+  display: block;
+}
+.titolo-sezione{
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+  font-weight: 700;
+  color: var(--colore-ferro);
+  margin-bottom: 20px;
+  line-height: 1.15;
+}
+.testo-sezione{
+  color: var(--colore-ferro-2);
+  font-size: 1.05rem;
+  max-width: 640px;
+}
+
+/* Introduzione a due colonne con statistiche */
+.intro-griglia{
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+.statistiche{
+  display: grid;
+  gap: 26px;
+}
+.statistica-numero{
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--colore-brace);
+  line-height: 1;
+}
+.statistica-etichetta{
+  font-size: 0.9rem;
+  color: var(--colore-pietra);
+  margin-top: 6px;
+}
+@media (max-width: 860px){
+  .intro-griglia{ grid-template-columns: 1fr; gap: 36px; }
+}
+
+/* ============ CARD PRODOTTI / SERVIZI ============ */
+.griglia-card{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  margin-top: 44px;
+}
+@media (max-width: 860px){ .griglia-card{ grid-template-columns: 1fr; } }
+
+.card{
+  background: var(--colore-bianco-caldo);
+  border: 1px solid rgba(107,66,38,0.18);
+  border-radius: var(--raggio);
+  padding: 32px 28px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(42,33,27,0.12);
+}
+.card-icona{
+  width: 46px; height: 46px;
+  margin-bottom: 20px;
+  color: var(--colore-brace);
+}
+.card h3{
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--colore-ferro);
+}
+.card p{
+  font-size: 0.96rem;
+  color: var(--colore-pietra);
+  margin-bottom: 16px;
+}
+.card-link{
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--colore-brace);
+  border-bottom: 1px solid var(--colore-brace);
+  padding-bottom: 2px;
+}
+
+/* Card segnaposto immagine (per Prodotti / Realizzazioni future) */
+.card-immagine{
+  aspect-ratio: 4/3;
+  border-radius: var(--raggio);
+  margin-bottom: 20px;
+  background:
+    repeating-linear-gradient(45deg, rgba(107,66,38,0.10) 0 12px, rgba(107,66,38,0.04) 12px 24px),
+    var(--colore-intonaco-2);
+  display: grid;
+  place-items: center;
+  color: var(--colore-pietra);
+  font-size: 0.82rem;
+  text-align: center;
+  padding: 12px;
+  border: 1px dashed rgba(107,66,38,0.35);
+}
+
+/* ============ PROCESSO (passi reali, numerati) ============ */
+.processo{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 50px;
+  position: relative;
+}
+@media (max-width: 860px){ .processo{ grid-template-columns: 1fr; gap: 44px; } }
+.passo{ position: relative; padding-left: 54px; }
+.passo-numero{
+  position: absolute;
+  left: 0; top: 0;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--colore-ferro);
+  color: var(--colore-ottone);
+  font-family: var(--font-display);
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  font-size: 1.05rem;
+}
+.passo h4{
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.passo p{ font-size: 0.95rem; color: var(--colore-pietra); }
+
+/* ============ SEZIONE SCURA (banda CTA) ============ */
+.banda-cta{
+  background: var(--colore-ferro);
+  color: var(--colore-bianco-caldo);
+  padding: 70px 0;
+  text-align: center;
+}
+.banda-cta h2{
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 3.4vw, 2.3rem);
+  margin-bottom: 16px;
+}
+.banda-cta p{
+  color: rgba(251,247,239,0.75);
+  margin-bottom: 30px;
+}
+
+/* ============ TESTATA DI PAGINA (pagine interne) ============ */
+.testata-pagina{
+  background: var(--colore-ferro);
+  color: var(--colore-bianco-caldo);
+  padding: 64px 0 46px;
+}
+.testata-pagina .eyebrow{ color: var(--colore-ottone); }
+.testata-pagina h1{
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+}
+.testata-pagina p{
+  margin-top: 14px;
+  color: rgba(251,247,239,0.75);
+  max-width: 560px;
+}
+
+/* ============ FOOTER ============ */
+.piede{
+  background: var(--colore-ferro-2);
+  color: rgba(251,247,239,0.82);
+  padding: 60px 0 26px;
+}
+.piede-griglia{
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 40px;
+}
+@media (max-width: 760px){ .piede-griglia{ grid-template-columns: 1fr 1fr; } }
+.piede h5{
+  font-family: var(--font-corpo);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.8rem;
+  color: var(--colore-ottone);
+  margin-bottom: 18px;
+}
+.piede ul li{ margin-bottom: 10px; font-size: 0.92rem; }
+.piede ul li a:hover{ color: var(--colore-ottone); }
+.piede-logo{
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--colore-bianco-caldo);
+  margin-bottom: 14px;
+}
+.piede-basso{
+  border-top: 1px solid rgba(251,247,239,0.12);
+  padding-top: 22px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.8rem;
+  color: rgba(251,247,239,0.45);
+}
+
+/* ============ FORM CONTATTI ============ */
+.form-contatti{
+  display: grid;
+  gap: 20px;
+  max-width: 560px;
+}
+.campo{ display: grid; gap: 8px; }
+.campo label{ font-size: 0.88rem; font-weight: 600; color: var(--colore-ferro-2); }
+.campo input, .campo textarea{
+  border: 1.5px solid rgba(107,66,38,0.3);
+  background: var(--colore-bianco-caldo);
+  border-radius: var(--raggio);
+  padding: 13px 14px;
+  font-family: var(--font-corpo);
+  font-size: 0.98rem;
+  color: var(--colore-ferro);
+}
+.campo input:focus, .campo textarea:focus{ border-color: var(--colore-brace); }
+.riga-doppia{ display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media (max-width: 600px){ .riga-doppia{ grid-template-columns: 1fr; } }
+
+/* Blocchi info contatto / dove siamo */
+.info-contatto-griglia{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+@media (max-width: 860px){ .info-contatto-griglia{ grid-template-columns: 1fr; } }
+.blocco-info{ margin-bottom: 26px; }
+.blocco-info h4{
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+  color: var(--colore-ferro);
+}
+.blocco-info p, .blocco-info a{ color: var(--colore-pietra); font-size: 0.96rem; }
+.mappa-segnaposto{
+  aspect-ratio: 4/3;
+  background:
+    repeating-linear-gradient(45deg, rgba(107,66,38,0.10) 0 12px, rgba(107,66,38,0.04) 12px 24px),
+    var(--colore-intonaco-2);
+  border: 1px dashed rgba(107,66,38,0.35);
+  border-radius: var(--raggio);
+  display: grid;
+  place-items: center;
+  color: var(--colore-pietra);
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 20px;
+}

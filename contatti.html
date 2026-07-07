@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contatti — [Nome Attività]</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="intestazione">
+  <div class="contenitore nav">
+    <a href="index.html" class="logo">
+      <span class="logo-segno">SF</span>
+      [Nome Attività]
+    </a>
+    <ul class="nav-link">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="chi-siamo.html">Chi siamo</a></li>
+      <li><a href="prodotti.html">Prodotti</a></li>
+      <li><a href="servizi.html">Servizi</a></li>
+      <li><a href="dove-siamo.html">Dove siamo</a></li>
+      <li><a href="contatti.html" class="nav-cta" aria-current="page">Contattaci</a></li>
+    </ul>
+    <button class="nav-burger" aria-label="Apri il menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<section class="testata-pagina">
+  <div class="contenitore">
+    <span class="eyebrow">Contatti</span>
+    <h1>Raccontaci il tuo progetto</h1>
+    <p>[Testo segnaposto] Rispondiamo entro [X] giorni lavorativi con una prima valutazione.</p>
+  </div>
+</section>
+
+<div class="intaglio" role="presentation"></div>
+
+<section class="sezione">
+  <div class="contenitore info-contatto-griglia">
+    <form class="form-contatti" onsubmit="return false;">
+      <div class="riga-doppia">
+        <div class="campo">
+          <label for="nome">Nome e cognome</label>
+          <input type="text" id="nome" name="nome" placeholder="Il tuo nome" required>
+        </div>
+        <div class="campo">
+          <label for="telefono">Telefono</label>
+          <input type="tel" id="telefono" name="telefono" placeholder="Il tuo numero">
+        </div>
+      </div>
+      <div class="campo">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="La tua email" required>
+      </div>
+      <div class="campo">
+        <label for="messaggio">Cosa vuoi realizzare?</label>
+        <textarea id="messaggio" name="messaggio" rows="5" placeholder="Descrivi lo spazio e il tipo di stufa o caminetto che ti interessa"></textarea>
+      </div>
+      <button type="submit" class="bottone bottone--pieno" style="justify-self:start;">Invia richiesta</button>
+      <p style="font-size:0.8rem; color:var(--colore-pietra);">[Nota: questo form è segnaposto — va collegato a un servizio di invio email reale prima della pubblicazione]</p>
+    </form>
+
+    <div>
+      <div class="blocco-info">
+        <h4>Telefono</h4>
+        <p><a href="tel:+390000000000">[+39 000 000 0000]</a></p>
+      </div>
+      <div class="blocco-info">
+        <h4>Email</h4>
+        <p><a href="mailto:info@nomeattivita.it">[info@nomeattivita.it]</a></p>
+      </div>
+      <div class="blocco-info">
+        <h4>Laboratorio / Negozio</h4>
+        <p>[Via/Indirizzo, Città] — <a href="dove-siamo.html">vedi la mappa</a></p>
+      </div>
+      <div class="blocco-info">
+        <h4>Orari</h4>
+        <p>Lun–Ven [09:00–13:00 / 15:00–19:00]<br>Sab [09:00–13:00]</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="piede">
+  <div class="contenitore">
+    <div class="piede-griglia">
+      <div>
+        <div class="piede-logo">[Nome Attività]</div>
+        <p style="font-size:0.9rem; max-width:280px;">[Testo segnaposto] Vendita e costruzione di stufe, caminetti e stufe tirolesi su misura.</p>
+      </div>
+      <div>
+        <h5>Pagine</h5>
+        <ul>
+          <li><a href="chi-siamo.html">Chi siamo</a></li>
+          <li><a href="prodotti.html">Prodotti</a></li>
+          <li><a href="servizi.html">Servizi</a></li>
+          <li><a href="dove-siamo.html">Dove siamo</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contatti</h5>
+        <ul>
+          <li><a href="tel:+390000000000">[+39 000 000 0000]</a></li>
+          <li><a href="mailto:info@nomeattivita.it">[info@nomeattivita.it]</a></li>
+          <li>[Via/Indirizzo, Città]</li>
+        </ul>
+      </div>
+      <div>
+        <h5>Seguici</h5>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="piede-basso">
+      <span>© [Anno] [Nome Attività] — Tutti i diritti riservati</span>
+      <span>v0.1 · sito segnaposto</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
