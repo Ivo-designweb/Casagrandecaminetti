@@ -1,0 +1,35 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stufa a legna in ghisa accesa">
+  <defs>
+    <radialGradient id="portellaGrad" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#F6C878"/>
+      <stop offset="45%" stop-color="#C1440E"/>
+      <stop offset="100%" stop-color="#6B2A0A"/>
+    </radialGradient>
+    <filter id="sfGlow"><feGaussianBlur stdDeviation="6"/></filter>
+  </defs>
+
+  <rect width="400" height="300" fill="#EDE3D3"/>
+  <ellipse cx="200" cy="258" rx="120" ry="14" fill="#D8C7AC"/>
+
+  <!-- canna fumaria -->
+  <rect x="185" y="30" width="30" height="70" rx="4" fill="#2A211B"/>
+
+  <!-- corpo stufa -->
+  <path d="M120 100 Q120 85 140 85 L260 85 Q280 85 280 100 L280 210 Q280 235 250 235 L150 235 Q120 235 120 210 Z" fill="#2A211B"/>
+  <rect x="120" y="150" width="160" height="6" fill="#382C24"/>
+
+  <!-- gambe -->
+  <rect x="140" y="235" width="12" height="24" rx="2" fill="#A67C3C"/>
+  <rect x="248" y="235" width="12" height="24" rx="2" fill="#A67C3C"/>
+
+  <!-- portella con brace -->
+  <circle cx="200" cy="165" r="46" fill="#171009"/>
+  <circle cx="200" cy="165" r="38" fill="url(#portellaGrad)"/>
+  <g filter="url(#sfGlow)">
+    <path d="M200 145 C 188 168, 192 190, 200 205 C 210 188, 216 165, 200 145 Z" fill="#F6C878" opacity="0.9"/>
+  </g>
+  <circle cx="200" cy="165" r="46" fill="none" stroke="#A67C3C" stroke-width="4"/>
+
+  <!-- maniglia -->
+  <rect x="252" y="158" width="16" height="10" rx="3" fill="#A67C3C"/>
+</svg>
