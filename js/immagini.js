@@ -22,7 +22,7 @@ const IMMAGINI = {
   laboratorio: "img/workshop.svg",
 
   // Famiglia: Stufe a legna
-  stufaLegna1: "img/1-CAMINETTI-MODERNI.jpg",
+  stufaLegna1: "1-CAMINETTI-MODERNI.jpg",
   stufaLegna2: "img/stufa-legna.svg",
   stufaLegna3: "img/stufa-legna.svg",
 
