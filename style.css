@@ -177,10 +177,30 @@ button{ font-family: inherit; cursor: pointer; }
 /* ============ HERO (pagina Home) ============ */
 .hero{
   position: relative;
-  background: radial-gradient(ellipse 700px 500px at 78% 30%, rgba(193,68,14,0.35), transparent 60%), var(--colore-ferro);
   color: var(--colore-bianco-caldo);
   overflow: hidden;
-  padding: 110px 0 90px;
+  padding: 130px 0 100px;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+}
+.hero-foto{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.hero::after{
+  /* copertura scura sopra la foto, per leggibilità del testo */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(24,17,13,0.94) 0%, rgba(24,17,13,0.78) 42%, rgba(24,17,13,0.35) 78%),
+    radial-gradient(ellipse 700px 500px at 78% 30%, rgba(193,68,14,0.28), transparent 60%);
+  z-index: 1;
 }
 .hero::before{
   /* bagliore pulsante, evoca la brace di una stufa */
@@ -194,6 +214,7 @@ button{ font-family: inherit; cursor: pointer; }
   filter: blur(10px);
   animation: bagliore 5s ease-in-out infinite;
   pointer-events: none;
+  z-index: 2;
 }
 @keyframes bagliore{
   0%, 100% { opacity: 0.55; transform: scale(1); }
@@ -201,6 +222,7 @@ button{ font-family: inherit; cursor: pointer; }
 }
 .hero-contenuto{
   position: relative;
+  z-index: 3;
   max-width: 640px;
 }
 .hero-eyebrow{
@@ -288,6 +310,37 @@ button{ font-family: inherit; cursor: pointer; }
   max-width: 640px;
 }
 
+/* Foto affiancata al testo (es. Chi siamo) */
+.testo-foto-griglia{
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 56px;
+  align-items: center;
+}
+@media (max-width: 860px){ .testo-foto-griglia{ grid-template-columns: 1fr; gap: 32px; } }
+.foto-riquadro{
+  border-radius: var(--raggio);
+  overflow: hidden;
+  aspect-ratio: 4/3.2;
+  box-shadow: 0 20px 40px rgba(42,33,27,0.18);
+}
+.foto-riquadro img{ width: 100%; height: 100%; object-fit: cover; }
+
+/* Fascia fotografica a piena larghezza (testate di pagina interne) */
+.banda-foto{
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+.banda-foto img{ width: 100%; height: 100%; object-fit: cover; }
+.banda-foto::after{
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(42,33,27,0.05), rgba(42,33,27,0.55));
+}
+@media (max-width: 700px){ .banda-foto{ height: 190px; } }
+
 /* Introduzione a due colonne con statistiche */
 .intro-griglia{
   display: grid;
@@ -313,6 +366,10 @@ button{ font-family: inherit; cursor: pointer; }
 }
 @media (max-width: 860px){
   .intro-griglia{ grid-template-columns: 1fr; gap: 36px; }
+}
+.statistiche--riga{ grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 700px){
+  .statistiche--riga{ grid-template-columns: 1fr; gap: 30px; text-align: center; }
 }
 
 /* ============ CARD PRODOTTI / SERVIZI ============ */
@@ -360,11 +417,26 @@ button{ font-family: inherit; cursor: pointer; }
   padding-bottom: 2px;
 }
 
-/* Card segnaposto immagine (per Prodotti / Realizzazioni future) */
+/* Foto prodotto/realizzazione dentro una card, con leggero zoom al passaggio del mouse */
 .card-immagine{
   aspect-ratio: 4/3;
   border-radius: var(--raggio);
   margin-bottom: 20px;
+  overflow: hidden;
+  background: var(--colore-intonaco-2);
+}
+.card-immagine img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.card:hover .card-immagine img{ transform: scale(1.06); }
+
+/* Riquadro segnaposto (usato solo dove non c'è ancora una foto, es. mappa) */
+.riquadro-segnaposto{
+  aspect-ratio: 4/3;
+  border-radius: var(--raggio);
   background:
     repeating-linear-gradient(45deg, rgba(107,66,38,0.10) 0 12px, rgba(107,66,38,0.04) 12px 24px),
     var(--colore-intonaco-2);
