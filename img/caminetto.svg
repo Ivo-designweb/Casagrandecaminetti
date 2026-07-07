@@ -1,0 +1,31 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Caminetto in muratura acceso">
+  <defs>
+    <radialGradient id="fuocoCamino" cx="50%" cy="75%" r="65%">
+      <stop offset="0%" stop-color="#F6C878"/>
+      <stop offset="45%" stop-color="#C1440E"/>
+      <stop offset="100%" stop-color="#6B2A0A"/>
+    </radialGradient>
+    <filter id="sfCamino"><feGaussianBlur stdDeviation="7"/></filter>
+  </defs>
+
+  <rect width="400" height="300" fill="#EDE3D3"/>
+
+  <!-- struttura in muratura -->
+  <rect x="70" y="60" width="260" height="190" fill="#6B4226"/>
+  <rect x="70" y="60" width="260" height="18" fill="#5A3620"/>
+  <!-- apertura -->
+  <path d="M120 250 L120 140 Q120 105 160 105 L240 105 Q280 105 280 140 L280 250 Z" fill="#211812"/>
+
+  <!-- fiamma -->
+  <g filter="url(#sfCamino)">
+    <path d="M200 165 C 172 205, 178 235, 200 250 C 224 235, 232 200, 200 165 Z" fill="url(#fuocoCamino)" opacity="0.95"/>
+  </g>
+  <path d="M200 190 C 186 212, 190 232, 202 240 C 214 226, 216 208, 200 190 Z" fill="#F6C878"/>
+
+  <!-- ceppi di legna -->
+  <rect x="160" y="238" width="80" height="14" rx="6" fill="#4A3018"/>
+  <rect x="170" y="226" width="60" height="12" rx="6" fill="#5A3620"/>
+
+  <!-- mensola -->
+  <rect x="60" y="95" width="280" height="14" fill="#4A3018"/>
+</svg>

@@ -1,0 +1,38 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stufa tirolese in maiolica decorata">
+  <defs>
+    <radialGradient id="nicchiaGrad" cx="50%" cy="60%" r="60%">
+      <stop offset="0%" stop-color="#F2A24A"/>
+      <stop offset="60%" stop-color="#C1440E"/>
+      <stop offset="100%" stop-color="#6B2A0A"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="400" height="300" fill="#EDE3D3"/>
+  <ellipse cx="200" cy="262" rx="90" ry="12" fill="#D8C7AC"/>
+
+  <!-- corpo della stufa -->
+  <rect x="140" y="40" width="120" height="215" rx="10" fill="#E4D2AE"/>
+  <rect x="140" y="40" width="120" height="215" rx="10" fill="none" stroke="#A67C3C" stroke-width="3"/>
+
+  <!-- cornice superiore -->
+  <rect x="128" y="30" width="144" height="16" rx="4" fill="#A67C3C"/>
+  <rect x="150" y="18" width="100" height="12" rx="4" fill="#6B4226"/>
+
+  <!-- fasce decorative con motivo a intaglio -->
+  <g fill="#C1440E">
+    <rect x="140" y="70" width="120" height="8"/>
+    <rect x="140" y="150" width="120" height="8"/>
+  </g>
+  <g fill="none" stroke="#6B4226" stroke-width="2">
+    <path d="M140 100 l10 -8 l10 8 l10 -8 l10 8 l10 -8 l10 8 l10 -8 l10 8 l10 -8 l10 8"/>
+    <path d="M140 190 l10 -8 l10 8 l10 -8 l10 8 l10 -8 l10 8 l10 -8 l10 8 l10 -8 l10 8"/>
+  </g>
+
+  <!-- nicchia con brace -->
+  <rect x="172" y="205" width="56" height="42" rx="6" fill="#211812"/>
+  <ellipse cx="200" cy="226" rx="20" ry="14" fill="url(#nicchiaGrad)"/>
+
+  <!-- piedini in ottone -->
+  <rect x="150" y="255" width="10" height="14" fill="#A67C3C"/>
+  <rect x="240" y="255" width="10" height="14" fill="#A67C3C"/>
+</svg>

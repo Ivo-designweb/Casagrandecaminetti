@@ -1,0 +1,41 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Laboratorio artigianale con attrezzi">
+  <defs>
+    <radialGradient id="gloWorkshop" cx="52%" cy="55%" r="45%">
+      <stop offset="0%" stop-color="#C1440E" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#C1440E" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="sfBanco"><feGaussianBlur stdDeviation="10"/></filter>
+  </defs>
+
+  <rect width="400" height="300" fill="#EDE3D3"/>
+  <rect width="400" height="300" fill="url(#gloWorkshop)"/>
+
+  <!-- asse appesa con attrezzi -->
+  <line x1="60" y1="70" x2="340" y2="70" stroke="#6B4226" stroke-width="4"/>
+  <!-- tenaglia -->
+  <g stroke="#2A211B" stroke-width="5" fill="none" stroke-linecap="round">
+    <line x1="120" y1="70" x2="112" y2="120"/>
+    <line x1="120" y1="70" x2="132" y2="118"/>
+    <circle cx="120" cy="70" r="4" fill="#A67C3C" stroke="none"/>
+  </g>
+  <!-- martello -->
+  <g stroke="#2A211B" stroke-width="5" fill="none" stroke-linecap="round">
+    <line x1="230" y1="70" x2="230" y2="130"/>
+  </g>
+  <rect x="212" y="115" width="36" height="14" rx="3" fill="#2A211B"/>
+
+  <!-- banco di lavoro -->
+  <rect x="40" y="210" width="320" height="16" fill="#6B4226"/>
+  <rect x="55" y="226" width="14" height="46" fill="#4A3018"/>
+  <rect x="330" y="226" width="14" height="46" fill="#4A3018"/>
+
+  <!-- incudine -->
+  <g filter="url(#sfBanco)" opacity="0.5">
+    <ellipse cx="200" cy="205" rx="70" ry="14" fill="#C1440E"/>
+  </g>
+  <path d="M150 210 L150 195 Q150 182 165 182 L205 182 Q214 182 214 173 L214 160 L240 160 L240 173 Q240 195 214 195 L214 210 Z" fill="#2A211B"/>
+  <rect x="170" y="210" width="60" height="12" fill="#211812"/>
+
+  <!-- bagliore ambra vicino all'incudine -->
+  <circle cx="200" cy="188" r="10" fill="#F2A24A" opacity="0.85"/>
+</svg>
