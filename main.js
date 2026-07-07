@@ -1,4 +1,4 @@
-// Applica le immagini centralizzate (definite in js/immagini.js) agli
+// Applica le immagini centralizzate (definite in immagini.js) agli
 // elementi della pagina. Basta mettere data-img="chiave" su un <img>
 // oppure data-img-bg="chiave" su un contenitore con sfondo.
 document.addEventListener('DOMContentLoaded', function () {
